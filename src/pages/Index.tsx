@@ -5,11 +5,12 @@ import emailjs from '@emailjs/browser';
 import { portfolioNodes, getNodesByType } from '@/data/portfolioData';
 import ProjectCarousel from '@/components/ProjectCarousel';
 import KnowledgeGraph from '@/components/KnowledgeGraph';
+import CategoriesTree from '@/components/CategoriesTree';
 import ExperienceTimeline from '@/components/ExperienceTimeline';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin, Grid3X3, ListTree } from 'lucide-react';
 
 // Utility function to shuffle array
 const shuffleArray = (array: any[]) => {
@@ -30,6 +31,8 @@ const Index = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [shuffledSkillRows, setShuffledSkillRows] = useState<any[][]>([]);
+  const [knowledgeView, setKnowledgeView] = useState<'graph' | 'tree'>('tree');
+  const [selectedKnowledgeNode, setSelectedKnowledgeNode] = useState<any>(null);
   
   // State now tracks the unique ID of the hovered instance
   const [hoveredSkillId, setHoveredSkillId] = useState<string | null>(null);
@@ -259,24 +262,33 @@ const Index = () => {
             
             {/* Liquid glass effect cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white/15 backdrop-blur-lg rounded-xl p-6 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/20">
+              <div 
+                className="bg-white/15 backdrop-blur-lg rounded-xl p-6 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/20 cursor-pointer group"
+                onClick={() => scrollToSection('experience')}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-xl"></div>
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-2 hover:text-gray-300">EXPERIENCE</h3>
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-gray-300 transition-colors">EXPERIENCE</h3>
                   <p className="text-gray-200">ROLES AND TASKS I HAVE CARRIED OUT</p>
                 </div>
               </div>
-              <div className="bg-white/15 backdrop-blur-lg rounded-xl p-6 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/20">
+              <div 
+                className="bg-white/15 backdrop-blur-lg rounded-xl p-6 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/20 cursor-pointer group"
+                onClick={() => scrollToSection('projects')}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-xl"></div>
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-2 hover:text-gray-300">PROJECTS</h3>
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-gray-300 transition-colors">PROJECTS</h3>
                   <p className="text-gray-200"> SHOWCASES OF MY WORK</p>
                 </div>
               </div>
-              <div className="bg-white/15 backdrop-blur-lg rounded-xl p-6 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/20">
+              <div 
+                className="bg-white/15 backdrop-blur-lg rounded-xl p-6 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/20 cursor-pointer group"
+                onClick={() => scrollToSection('knowledge')}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-xl"></div>
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-2 hover:text-gray-300">KNOWLEDGE</h3>
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-gray-300 transition-colors">KNOWLEDGE</h3>
                   <p className="text-gray-200">EXPLORE MY EXPERTISE GRAPH</p>
                 </div>
               </div>
@@ -303,9 +315,46 @@ const Index = () => {
         {/* Knowledge Graph */}
         <section id="knowledge" className="py-16 px-4 bg-black/20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 hover:text-gray-300">KNOWLEDGE GRAPH</h2>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <KnowledgeGraph />
+            <div className="flex justify-between items-center mb-12">
+              <h2 className="text-3xl md:text-4xl text-gray-300">KNOWLEDGE EXPLORER</h2>
+              <div className="flex gap-2">
+                <Button
+                  variant={knowledgeView === 'graph' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setKnowledgeView('graph')}
+                  className={`flex items-center gap-2 transition-all duration-300 !text-black ${
+                    knowledgeView === 'graph' 
+                      ? 'bg-gradient-to-r from-purple-600 to-orange-500 border-transparent' 
+                      : 'border-gray-400 text-black hover:text-black hover:border-gray-900'
+                  }`}
+                >
+                  <Grid3X3 className="h-4 w-4" />
+                  GRAPH VIEW
+                </Button>
+                <Button
+                  variant={knowledgeView === 'tree' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setKnowledgeView('tree')}
+                  className={`flex items-center gap-2 transition-all duration-300 !text-white ${
+                    knowledgeView === 'tree' 
+                      ? 'bg-gradient-to-r from-purple-600 to-orange-500 border-transparent' 
+                      : 'border-gray-600 text-white hover:text-white hover:border-gray-400'
+                  }`}
+                >
+                  <ListTree className="h-4 w-4" />
+                  CATEGORIES VIEW
+                </Button>
+              </div>
+            </div>
+            <div className="bg-grey/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              {knowledgeView === 'graph' ? (
+                <KnowledgeGraph />
+              ) : (
+                <CategoriesTree 
+                  onNodeSelect={setSelectedKnowledgeNode}
+                  selectedNode={selectedKnowledgeNode}
+                />
+              )}
             </div>
           </div>
         </section>
