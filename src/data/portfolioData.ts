@@ -26,206 +26,302 @@ export interface PortfolioEdge {
   relationship: string;
 }
 
-// Sample portfolio data
+ // Sample portfolio data
 export const portfolioNodes: PortfolioNode[] = [
-  // Projects
+  // Projects (from Obsidian vault cover letters)
   {
-    id: "project-portfolio-site",
-    name: "Portfolio",
+    id: "project-fullstack-rag",
+    name: "Full Stack LLM App with RAG",
     type: "Project",
-    content: "A modern portfolio website with knowledge graph visualization and dynamic content presentation.",
+    content: "Internal conversational AI tool with RAG service integration for consultants. Features user authentication, flexible model providers, multi-user concurrency, and long-term memory. Designed and deployed to optimize internal information lookup.",
     images: [
       {
         url: "/placeholder.svg",
-        caption: "Portfolio website interface"
+        caption: "RAG application architecture"
       }
     ],
     links: [
       {
-        url: "https://github.com/yourusername/portfolio",
-        label: "GitHub Repository"
+        url: "https://obsidian.local/Personal/MS%20Cover%20Letter.md",
+        label: "Source: MS Cover Letter (Obsidian)"
       }
     ]
   },
   {
-    id: "project-ecommerce-platform",
-    name: "E-Commerce Platform",
+    id: "project-synth-data-dtwins",
+    name: "Synthetic Data Generation for Digital Twins",
     type: "Project",
-    content: "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and inventory management.",
+    content: "Synthetic data pipeline using NVIDIA Omniverse to generate flexible CV datasets and loop AI inference back into simulations via OPC UA. Supports scenario randomization and data generation for data-scarce environments.",
     images: [
       {
         url: "/placeholder.svg",
-        caption: "E-commerce dashboard"
+        caption: "Synthetic data generation pipeline"
       }
     ],
     links: [
       {
-        url: "https://github.com/yourusername/ecommerce",
-        label: "GitHub Repository"
+        url: "https://obsidian.local/Personal/MS%20Cover%20Letter.md",
+        label: "Source: MS Cover Letter (Obsidian)"
       }
     ]
   },
   {
-    id: "project-data-visualization",
-    name: "Data Visualization Dashboard",
+    id: "project-gtm-mcp-app",
+    name: "GTM Demo: MCP + LLM Integrated Portfolio App",
     type: "Project",
-    content: "Interactive dashboard for visualizing complex datasets using D3.js and React.",
+    content: "Go-to-market engineering demo showcasing Model Context Protocol (MCP) integrations with Obsidian vault and LLM-powered curation. Features: vault ingestion via MCP tools, topic extraction with sequential thinking, TypeScript data pipeline into a React UI, and CI/CD-ready structure.",
     images: [
-      {
-        url: "/placeholder.svg",
-        caption: "Data visualization dashboard"
-      }
+      { url: "/placeholder.svg", caption: "MCP and LLM integration flow" }
     ],
     links: [
-      {
-        url: "https://github.com/yourusername/dataviz",
-        label: "GitHub Repository"
-      }
+      { url: "https://obsidian.local/OBSIDIAN%20MCPS.md", label: "Vault: OBSIDIAN MCPS" }
+    ]
+  },
+  {
+    id: "project-piv-dust-monitoring",
+    name: "Particle Image Velocimetry for Dust Monitoring",
+    type: "Project",
+    content: "Thesis project using Particle Image Velocimetry to estimate dust particle generation in ROCKWOOL manufacturing. Aimed at improving environmental cleanliness and worker health while informing process efficiency decisions.",
+    images: [
+      { url: "/placeholder.svg", caption: "PIV-based dust estimation concept" }
+    ],
+    links: [
+      { url: "https://obsidian.local/Personal/Academic%20Projects/MSc%20Thesis%20Intern%2C%20ROCKWOOL%20(DTU).md", label: "Vault: MSc Thesis (DTU/ROCKWOOL)" }
     ]
   },
 
-  // Technologies
+  // Technologies (tools mentioned in vault)
   {
-    id: "tech-react",
-    name: "React",
+    id: "tech-langchain",
+    name: "LangChain",
     type: "Technology",
-    content: "JavaScript library for building user interfaces. Expert-level knowledge in hooks, context, and performance optimization."
+    content: "Framework used to build RAG agents and conversational AI workflows."
   },
   {
-    id: "tech-typescript",
-    name: "TypeScript",
+    id: "tech-docker",
+    name: "Docker",
     type: "Technology",
-    content: "Strongly typed programming language that builds on JavaScript. Used in all modern projects for better code quality."
+    content: "Containerization used for deploying applications and ML services."
   },
   {
-    id: "tech-nodejs",
-    name: "Node.js",
+    id: "tech-opcua",
+    name: "OPC UA",
     type: "Technology",
-    content: "JavaScript runtime for building scalable server-side applications."
+    content: "Industrial communication protocol used to integrate simulations and plant systems."
+  },
+  {
+    id: "tech-mqtt",
+    name: "MQTT",
+    type: "Technology",
+    content: "Lightweight pub/sub protocol used for real-time inference integration."
+  },
+  {
+    id: "tech-omniverse",
+    name: "NVIDIA Omniverse",
+    type: "Technology",
+    content: "Platform used to build synthetic environments for digital twins and CV data generation."
   },
   {
     id: "tech-python",
     name: "Python",
     type: "Technology",
-    content: "High-level programming language used for data science, automation, and backend development."
+    content: "Primary language for AI/ML, data processing, and backend services."
+  },
+  {
+    id: "tech-react",
+    name: "React",
+    type: "Technology",
+    content: "Frontend framework used for building operator and internal UIs."
   },
 
-  // Skills
+  // Skills (from vault narrative)
   {
-    id: "skill-web-dev",
-    name: "Web Development",
+    id: "skill-stakeholder-mgmt",
+    name: "Stakeholder Management",
     type: "Skill",
-    content: "Full-stack web development with modern frameworks and best practices."
+    content: "Aligning interests and communicating at the right abstraction level across IT/OT and business stakeholders."
   },
   {
-    id: "skill-ui-ux",
-    name: "UI/UX Design",
+    id: "skill-product-ideation",
+    name: "Product Ideation",
     type: "Skill",
-    content: "User-centered design approach with wireframing and prototyping."
+    content: "Identifying opportunities, scoping value, and iterating fast from prototype to scalable solution."
   },
   {
-    id: "skill-data-science",
-    name: "Data Science",
+    id: "skill-fullstack",
+    name: "Full-stack Development",
     type: "Skill",
-    content: "Data analysis and visualization using Python libraries like Pandas and Matplotlib."
+    content: "Building end-to-end systems across Python backends, React frontends, and infrastructure."
+  },
+  {
+    id: "skill-gtm-engineering",
+    name: "GTM Engineering",
+    type: "Skill",
+    content: "Go-to-market technical enablement: demos, integrations, and solution packaging to showcase value and drive adoption."
+  },
+  {
+    id: "skill-data-pipelines",
+    name: "Data Pipelines",
+    type: "Skill",
+    content: "Designing and operating ingestion, transformation, and orchestration for analytics and ML systems."
+  },
+  {
+    id: "skill-cicd",
+    name: "CI/CD",
+    type: "Skill",
+    content: "Building pipelines for testing, building, and deploying apps and ML services with reliability and speed."
+  },
+  {
+    id: "skill-uiux",
+    name: "UI/UX Awareness",
+    type: "Skill",
+    content: "Applying basic design principles to craft usable operator and demo interfaces."
+  },
+  {
+    id: "skill-computer-vision",
+    name: "Computer Vision",
+    type: "Skill",
+    content: "Experience in visual inspection, augmentation strategies, and PIV-based analysis for industrial processes."
+  },
+  {
+    id: "skill-python",
+    name: "Python",
+    type: "Skill",
+    content: "Primary programming language for data pipelines, ML, and backend services."
   },
 
-  // Experience
+  // Experience (orgs and roles)
   {
-    id: "exp-senior-dev",
-    name: "Senior Developer",
+    id: "exp-projectbinder",
+    name: "Data Science Specialist — ProjectBinder",
     type: "Experience",
-    content: "Led development team of 5 developers, mentored junior developers, and architected scalable solutions."
+    content: "Led AI initiatives bridging IT and OT in manufacturing; built RAG app, synthetic data pipelines, predictive maintenance, and alarm management assessments using ISA95, OPC UA, MQTT, and Kafka."
   },
   {
-    id: "exp-frontend-lead",
-    name: "Frontend Lead",
+    id: "exp-rockwool",
+    name: "Solutions Developer — ROCKWOOL",
     type: "Experience",
-    content: "Responsible for frontend architecture and implementation of complex user interfaces."
+    content: "Explored AR with HoloLens 2 and Unity; trained PyTorch CV models; delivered Python/React UIs for thermal monitoring."
+  },
+  {
+    id: "exp-drc",
+    name: "System Administrator & BI Developer — Danish Refugee Council",
+    type: "Experience",
+    content: "Automated reporting with SQL and PowerBI; digitized fundraising operations; built monthly insights."
   },
 
-  // Topics
+  // Topics (expanded from vault research)
   {
-    id: "topic-ai-ml",
-    name: "AI & Machine Learning",
+    id: "topic-human-in-the-loop",
+    name: "Human-in-the-loop AI in Manufacturing",
     type: "Topic",
-    content: "Passionate about artificial intelligence and machine learning applications."
+    content: "Designing AI systems that augment operators and engineers, with oversight and collaboration to ensure trust, safety, and effectiveness on the shop floor."
   },
   {
-    id: "topic-web3",
-    name: "Web3 & Blockchain",
+    id: "topic-cv-quality",
+    name: "Computer Vision for Quality Inspection",
     type: "Topic",
-    content: "Exploring decentralized technologies and their applications."
+    content: "Visual inspection pipelines for repetitive tasks; robustness via augmentation; intuitive explainability through image-based detections."
   },
   {
-    id: "topic-cloud-computing",
-    name: "Cloud Computing",
+    id: "topic-predictive-maintenance",
+    name: "Predictive Maintenance & Condition-Based Monitoring",
     type: "Topic",
-    content: "Expertise in cloud platforms and serverless architectures."
+    content: "Multivariate time-series modeling to anticipate failures and schedule interventions, harmonized with plant standards and operations."
+  },
+  {
+    id: "topic-alarm-intelligence",
+    name: "Alarm Management Intelligence",
+    type: "Topic",
+    content: "Event correlation, root cause insights, and prioritization to reduce noise and increase operator clarity during complex plant events."
+  },
+  {
+    id: "topic-industrial-data-infra",
+    name: "Industrial Data Infrastructure",
+    type: "Topic",
+    content: "ISA-95 aligned architectures and IIoT messaging (OPC UA, MQTT, Kafka) to integrate simulations, equipment, and enterprise systems."
+  },
+  {
+    id: "topic-digital-twins",
+    name: "Digital Twins & Synthetic Data",
+    type: "Topic",
+    content: "Simulation-in-the-loop with Omniverse, synthetic datasets for data-scarce CV problems, and bidirectional loops between models and twins."
+  },
+  {
+    id: "topic-enterprise-rag",
+    name: "Enterprise RAG & Knowledge Ops",
+    type: "Topic",
+    content: "Confidential retrieval-augmented generation systems for internal knowledge, document extraction, and decision support."
+  },
+  {
+    id: "topic-mlops-industrial",
+    name: "MLOps in Industrial Settings",
+    type: "Topic",
+    content: "Governable model lifecycle from experimentation to production, with containerization, monitoring, and change management."
+  },
+  {
+    id: "topic-sensor-fusion",
+    name: "Multimodal Sensor Fusion & Signal Processing",
+    type: "Topic",
+    content: "Combining vision and non-vision signals to detect hidden defects and deliver robust diagnostics beyond superficial cues."
+  },
+  {
+    id: "topic-digital-transformation",
+    name: "Digital Transformation & IT/OT Convergence",
+    type: "Topic",
+    content: "Scaling beyond pilots, breaking silos, and aligning stakeholders to deliver value-adding Industry 4.0 solutions."
   }
 ];
 
 export const portfolioEdges: PortfolioEdge[] = [
   // Project relationships
-  {
-    source: "project-portfolio-site",
-    target: "tech-react",
-    relationship: "uses"
-  },
-  {
-    source: "project-portfolio-site",
-    target: "tech-typescript",
-    relationship: "uses"
-  },
-  {
-    source: "project-portfolio-site",
-    target: "topic-ai-ml",
-    relationship: "related_to"
-  },
-  {
-    source: "project-ecommerce-platform",
-    target: "tech-nodejs",
-    relationship: "uses"
-  },
-  {
-    source: "project-ecommerce-platform",
-    target: "skill-web-dev",
-    relationship: "applies"
-  },
-  {
-    source: "project-data-visualization",
-    target: "skill-data-science",
-    relationship: "applies"
-  },
-  {
-    source: "project-data-visualization",
-    target: "tech-python",
-    relationship: "uses"
-  },
+  { source: "project-fullstack-rag", target: "tech-langchain", relationship: "uses" },
+  { source: "project-fullstack-rag", target: "tech-docker", relationship: "uses" },
+  { source: "project-fullstack-rag", target: "tech-python", relationship: "uses" },
+  { source: "project-fullstack-rag", target: "tech-react", relationship: "uses" },
+  { source: "project-fullstack-rag", target: "topic-enterprise-rag", relationship: "related_to" },
+  { source: "project-fullstack-rag", target: "topic-mlops-industrial", relationship: "related_to" },
+
+  { source: "project-synth-data-dtwins", target: "tech-omniverse", relationship: "uses" },
+  { source: "project-synth-data-dtwins", target: "tech-opcua", relationship: "uses" },
+  { source: "project-synth-data-dtwins", target: "tech-mqtt", relationship: "uses" },
+  { source: "project-synth-data-dtwins", target: "tech-python", relationship: "uses" },
+  { source: "project-synth-data-dtwins", target: "topic-digital-twins", relationship: "related_to" },
+  { source: "project-synth-data-dtwins", target: "topic-industrial-data-infra", relationship: "related_to" },
+  { source: "project-synth-data-dtwins", target: "topic-sensor-fusion", relationship: "related_to" },
+
+  // New project edges
+  { source: "project-gtm-mcp-app", target: "topic-enterprise-rag", relationship: "related_to" },
+  { source: "project-gtm-mcp-app", target: "topic-mlops-industrial", relationship: "related_to" },
+  { source: "project-gtm-mcp-app", target: "skill-gtm-engineering", relationship: "applies" },
+  { source: "project-gtm-mcp-app", target: "skill-data-pipelines", relationship: "applies" },
+  { source: "project-gtm-mcp-app", target: "skill-cicd", relationship: "applies" },
+  { source: "project-gtm-mcp-app", target: "skill-uiux", relationship: "applies" },
+  { source: "project-gtm-mcp-app", target: "tech-react", relationship: "uses" },
+  { source: "project-gtm-mcp-app", target: "tech-python", relationship: "uses" },
+
+  { source: "project-piv-dust-monitoring", target: "topic-sensor-fusion", relationship: "related_to" },
+  { source: "project-piv-dust-monitoring", target: "topic-cv-quality", relationship: "related_to" },
+  { source: "project-piv-dust-monitoring", target: "skill-computer-vision", relationship: "applies" },
+  { source: "project-piv-dust-monitoring", target: "skill-python", relationship: "applies" },
 
   // Experience relationships
-  {
-    source: "exp-senior-dev",
-    target: "skill-web-dev",
-    relationship: "applies"
-  },
-  {
-    source: "exp-frontend-lead",
-    target: "tech-react",
-    relationship: "uses"
-  },
+  { source: "exp-projectbinder", target: "skill-fullstack", relationship: "applies" },
+  { source: "exp-projectbinder", target: "skill-stakeholder-mgmt", relationship: "applies" },
+  { source: "exp-projectbinder", target: "topic-digital-transformation", relationship: "related_to" },
+  { source: "exp-rockwool", target: "tech-react", relationship: "uses" },
+  { source: "exp-rockwool", target: "topic-cv-quality", relationship: "related_to" },
+  { source: "exp-drc", target: "skill-product-ideation", relationship: "applies" },
 
   // Skill relationships
-  {
-    source: "skill-ui-ux",
-    target: "topic-web3",
-    relationship: "related_to"
-  },
-  {
-    source: "skill-data-science",
-    target: "topic-ai-ml",
-    relationship: "related_to"
-  }
+  { source: "skill-fullstack", target: "topic-mlops-industrial", relationship: "related_to" },
+  { source: "skill-stakeholder-mgmt", target: "topic-digital-transformation", relationship: "related_to" },
+  { source: "skill-product-ideation", target: "topic-human-in-the-loop", relationship: "related_to" },
+  { source: "skill-gtm-engineering", target: "topic-enterprise-rag", relationship: "related_to" },
+  { source: "skill-data-pipelines", target: "topic-industrial-data-infra", relationship: "related_to" },
+  { source: "skill-cicd", target: "topic-mlops-industrial", relationship: "related_to" },
+  { source: "skill-uiux", target: "topic-human-in-the-loop", relationship: "related_to" },
+  { source: "skill-computer-vision", target: "topic-cv-quality", relationship: "related_to" }
 ];
 
 // Helper function to get nodes by type
